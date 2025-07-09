@@ -3,7 +3,7 @@
 $menus = [
     'Home' => route('tenta.home'),
     'Docs' => route('tenta.docs', [
-        'any' => 'installation',
+        'any' => 'install',
     ]),
 ];
 ?>

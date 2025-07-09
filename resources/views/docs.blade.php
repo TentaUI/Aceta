@@ -64,47 +64,7 @@
                 <div class="flex-1 min-w-0">
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                         <article class="prose prose-zinc dark:prose-invert max-w-none">
-                            <section id="introduction">
-                                <h1 class="text-4xl font-bold text-zinc-900 dark:text-white mb-6">Documentation</h1>
-                                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-8">Welcome to our comprehensive documentation. Learn how to build amazing experiences with
-                                    our
-                                    tools and components.</p>
-
-                                <h2 class="text-2xl font-semibold text-zinc-900 dark:text-white mt-12 mb-4">What is DocSite?</h2>
-                                <p class="text-zinc-600 dark:text-zinc-400 mb-6">DocSite is a modern documentation framework that helps you create beautiful, responsive
-                                    documentation websites with minimal effort. Built with Tailwind CSS and vanilla JavaScript, it provides everything you need to document your
-                                    projects effectively.</p>
-                            </section>
-
-                            <h2 class="text-2xl font-semibold text-zinc-900 dark:text-white mb-4">Cards</h2>
-                            <p class="text-zinc-600 dark:text-zinc-400 mb-6">Flexible card components for displaying content in an organized way.</p>
-
-                            <div class="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg p-6 mb-6">
-                                <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">Example Card</h3>
-                                <p class="text-zinc-600 dark:text-zinc-400 mb-4">This is an example of a card component with a title, description, and action button.</p>
-                                <button class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors">Learn More</button>
-                            </div>
-                            </section>
-
-                            <section id="forms" class="mt-16">
-                                <h2 class="text-2xl font-semibold text-zinc-900 dark:text-white mb-4">Forms</h2>
-                                <p class="text-zinc-600 dark:text-zinc-400 mb-6">Create accessible and beautiful forms with consistent styling.</p>
-
-                                <div class="space-y-4 mb-6">
-                                    <div>
-                                        <label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Email</label>
-                                        <input type="email"
-                                               class="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
-                                               placeholder="Enter your email">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Message</label>
-                                        <textarea rows="4"
-                                                  class="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
-                                                  placeholder="Enter your message"></textarea>
-                                    </div>
-                                </div>
-                            </section>
+                            {!! $this->content() !!}
                         </article>
 
                         <!-- Footer -->

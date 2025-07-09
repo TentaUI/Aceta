@@ -2,14 +2,44 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\Title;
+use App\Services\MarkdownParser;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Stringable;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Title('Home')]
 class Docs extends Component
 {
-    public function render()
+    protected MarkdownParser $service;
+
+    /**
+     * @return void
+     */
+    public function mount() : void
     {
-        return view('docs');
+        $file = base_path(request()->path() . '.mdx');
+
+        if (! file_exists($file)) {
+            abort(404);
+        }
+
+        $this->service = new MarkdownParser($file);
+    }
+
+    /**
+     * @return Stringable
+     */
+    public function content() : Stringable
+    {
+        return $this->service->parse()->body()->markdown();
+    }
+
+    /**
+     * @return View
+     */
+    #[Layout('components.layouts.app')]
+    public function render() : View
+    {
+        return view('docs')->title($this->service->meta('title'));
     }
 }
