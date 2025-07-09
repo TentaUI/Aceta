@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./font.css";
+
+@plugin "@tailwindcss/typography";
+
+@source "../views";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    @apply size-1.5;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-zinc-200 dark:bg-zinc-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-zinc-500 dark:bg-zinc-500;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-600 dark:bg-zinc-400;
+}
