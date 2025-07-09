@@ -3,13 +3,13 @@
 $menus = [
     'Home' => route('tenta.home'),
     'Docs' => route('tenta.docs', [
-        'docs' => '/',
+        'any' => 'installation',
     ]),
 ];
 ?>
-<div x-data="{ mobile: false }">
-    <header class="sticky top-0 z-50 border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div x-data="{ mobile: false }" class="sticky top-0 z-50 ">
+    <div class="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+        <div class="mx-auto container px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 {{-- LOGO --}}
                 <div class="flex items-center space-x-2">
@@ -59,7 +59,7 @@ $menus = [
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     <nav x-show="mobile" x-transition
          class="border-b p-4 flex flex-col border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 space-y-2 pb-4 md:hidden">

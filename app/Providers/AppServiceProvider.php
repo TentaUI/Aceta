@@ -20,10 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot() : void
     {
-        Folio::path(resource_path('pages'))->middleware([
-            '*' => [
-                //
-            ],
-        ]);
+        //
     }
 }

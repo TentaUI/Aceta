@@ -16,9 +16,9 @@ $active = request()->is($path);
 
 $class = \Illuminate\Support\Arr::toCssClasses([
     'font-medium text-sm',
-    'text-indigo-600 dark:text-indigo-400'                                                    => $active,
-    'text-zinc-600 transition-colors hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400' => ! $active,
-    'block rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800 px-3 py-2'      => $mobile,
+    'text-indigo-600 dark:text-indigo-400'                                                                          => $active,
+    'text-zinc-600 transition-colors hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400'           => ! $active,
+    'block rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-700 px-3 py-2' => $mobile,
 ]);
 ?>
 

@@ -13,10 +13,9 @@ class Home extends Component
     /**
      * @return View
      */
-
     #[Layout('components.layouts.app')]
     public function render() : View
     {
-        return view('index');
+        return view('home');
     }
 }

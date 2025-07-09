@@ -4,7 +4,7 @@
     <main class="relative">
         <!-- Hero Section -->
         <section class="py-20 sm:py-32">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto container px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h1 class="mb-6 text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-white">
                         Meet
@@ -36,11 +36,11 @@
 
         <!-- Features Section -->
         <section id="features" class="bg-zinc-50 py-20 dark:bg-zinc-800/50">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto container px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 text-center">
                     <h2 class="mb-4 text-3xl font-bold lg:text-4xl">Why Choose Tenta UI?</h2>
                     <p class="mx-auto max-w-2xl text-xl text-zinc-600 dark:text-zinc-400">
-                       The ultimate UI kit for modern Livewire projects
+                        The ultimate UI kit for modern Livewire projects
                     </p>
                 </div>
 
@@ -110,7 +110,7 @@
 
         <!-- Used By Section -->
         <section class="py-20">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto container px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 text-center">
                     <h2 class="mb-4 text-3xl font-bold lg:text-4xl">What developers are saying</h2>
                     <p class="text-xl text-zinc-600 dark:text-zinc-400">Trusted by developers around the world</p>
@@ -169,7 +169,7 @@
 
         <!-- Testimonials Section -->
         <section class="bg-zinc-50 py-20 dark:bg-zinc-800/50">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto container px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 text-center">
                     <h2 class="mb-4 text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-white">What developers are saying</h2>
                     <p class="text-xl text-zinc-600 dark:text-zinc-400">
@@ -277,4 +277,6 @@
             </div>
         </section>
     </main>
+
+    <x-layouts.inc.footer />
 </div>

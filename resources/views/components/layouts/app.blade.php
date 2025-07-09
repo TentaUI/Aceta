@@ -1,5 +1,5 @@
 @props(['title' => null])
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -9,12 +9,16 @@
         @vite([
             'resources/theme/main.js',
         ])
+
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
     </head>
     <body class="bg-white text-zinc-900 transition-colors dark:bg-zinc-900 dark:text-zinc-100">
         <x-layouts.inc.header />
 
         {{ $slot }}
-
-        <x-layouts.inc.footer />
     </body>
 </html>
