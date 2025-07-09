@@ -9,8 +9,8 @@
 
             <div class="flex items-center gap-x-3">
                 <nav class="hidden items-center gap-x-4 md:flex">
-                    <x-menu href="/">Home</x-menu>
-                    <x-menu href="/docs">Docs</x-menu>
+                    <x-menu href="{{ route('tenta.home') }}">Home</x-menu>
+                    <x-menu href="{{ route('tenta.docs', ['docs' => '/']) }}">Docs</x-menu>
                 </nav>
 
                 <div class="mx-2 hidden h-5 w-px bg-zinc-300 md:block dark:bg-zinc-700"></div>
