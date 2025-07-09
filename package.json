@@ -8,6 +8,7 @@
     },
     "devDependencies": {
         "@fontsource/geist-mono": "^5.2.6",
+        "@fontsource/instrument-sans": "^5.2.6",
         "@fontsource/inter": "^5.2.6",
         "@tailwindcss/typography": "^0.5.16",
         "@tailwindcss/vite": "^4.0.0",

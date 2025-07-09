@@ -232,6 +232,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/instrument-sans@npm:^5.2.6":
+  version: 5.2.6
+  resolution: "@fontsource/instrument-sans@npm:5.2.6"
+  checksum: 10c0/8978060865e382980364fff3836083bea327ac9320d53ca3ab21c823ed9e0e4912594986116906d3547aa61fc918fae83be53b1eb96e6fba3be4f0bdf9cdafd9
+  languageName: node
+  linkType: hard
+
 "@fontsource/inter@npm:^5.2.6":
   version: 5.2.6
   resolution: "@fontsource/inter@npm:5.2.6"
@@ -2009,6 +2016,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@fontsource/geist-mono": "npm:^5.2.6"
+    "@fontsource/instrument-sans": "npm:^5.2.6"
     "@fontsource/inter": "npm:^5.2.6"
     "@tailwindcss/typography": "npm:^0.5.16"
     "@tailwindcss/vite": "npm:^4.0.0"
