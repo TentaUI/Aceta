@@ -1,0 +1,3 @@
+[submodule "tenta"]
+	path = tenta
+	url = git@github.com:TentaUI/Tenta.git
