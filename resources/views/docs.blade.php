@@ -64,21 +64,14 @@
                 <div class="flex-1 min-w-0">
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                         <article class="prose prose-zinc dark:prose-invert max-w-none">
-                            {!! $this->content() !!}
+                            {!! $this->markdown()->html !!}
                         </article>
 
                         <!-- Footer -->
                         <footer class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-                            <div class="flex flex-col md:flex-row justify-between items-center">
-                                <p class="text-zinc-600 dark:text-zinc-400 mb-4 md:mb-0">
-                                    © 2024 Luno UI. Built with Tailwind CSS.
-                                </p>
-                                <div class="flex space-x-6">
-                                    <a href="#" class="text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">GitHub</a>
-                                    <a href="#" class="text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Twitter</a>
-                                    <a href="#" class="text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Discord</a>
-                                </div>
-                            </div>
+                            <p class="text-zinc-600 dark:text-zinc-400 mb-4 md:mb-0">
+                                2025 © {{ config('app.name') }} - Built with Tailwind CSS.
+                            </p>
                         </footer>
                     </div>
                 </div>

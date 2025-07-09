@@ -4,13 +4,12 @@ namespace App\Livewire;
 
 use App\Services\MarkdownParser;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Stringable;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Docs extends Component
 {
-    protected MarkdownParser $service;
+    protected MarkdownParser $markdown;
 
     /**
      * @return void
@@ -23,15 +22,7 @@ class Docs extends Component
             abort(404);
         }
 
-        $this->service = new MarkdownParser($file);
-    }
-
-    /**
-     * @return Stringable
-     */
-    public function content() : Stringable
-    {
-        return $this->service->parse()->body()->markdown();
+        $this->markdown = new MarkdownParser($file)->render();
     }
 
     /**
@@ -40,6 +31,14 @@ class Docs extends Component
     #[Layout('components.layouts.app')]
     public function render() : View
     {
-        return view('docs')->title($this->service->meta('title'));
+        return view('docs')->title($this->markdown->meta('title'));
+    }
+
+    /**
+     * @return MarkdownParser
+     */
+    public function markdown() : MarkdownParser
+    {
+        return $this->markdown;
     }
 }
