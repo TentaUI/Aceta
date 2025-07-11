@@ -88,7 +88,10 @@ class MarkdownParser
     public function render() : MarkdownParser
     {
         // convert markdown content(with blade directives) into html
-        $html = Str::markdown(Blade::render($this->body()));
+        $html =
+            $this->markdownToHtmlWithLang(
+                Blade::render($this->body()),
+            );
 
         // initialize table of content service with parsed html
         $service = new TableOfContent($html);
@@ -138,5 +141,23 @@ class MarkdownParser
         }
 
         return $this->markdown;
+    }
+
+    /**
+     * @param  string $markdown
+     * @return string
+     */
+    private function markdownToHtmlWithLang(string $markdown) : string
+    {
+        $markdown = preg_replace_callback('/```(\w+)?\n([\s\S]*?)```/m', static function ($matches) {
+            $lang = $matches[1] ?? 'plaintext';
+            $code = htmlspecialchars($matches[2]);
+
+            return sprintf('<pre><code class="lang-%s">%s</code></pre>', $lang, $code);
+        },
+            $markdown,
+        );
+
+        return Str::markdown($markdown);
     }
 }

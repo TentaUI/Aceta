@@ -5,6 +5,7 @@
 import './main.css';
 import './docs.js';
 import { createNavigation } from './docs.js';
+import highlightAllCodeBlocks from './plugins/shiki.js';
 
 document.addEventListener('alpine:init', () => {
     const STORAGE_KEY = 'tenta.theme.dark';
@@ -39,7 +40,9 @@ document.addEventListener('alpine:init', () => {
     window.$tenta.navigation.init();
 });
 
+
 document.addEventListener('livewire:navigated', () => {
     document.documentElement.classList.toggle('dark', $tenta.theme.dark);
     $tenta.navigation.reinit();
+     highlightAllCodeBlocks();
 });
