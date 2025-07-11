@@ -63,7 +63,7 @@
                 <!-- Content Area -->
                 <div class="flex-1 min-w-0">
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                        <article class="prose prose-zinc dark:prose-invert max-w-none">
+                        <article class="prose prose-zinc dark:prose-invert max-w-none js-toc-content">
                             {!! $this->markdown()->html !!}
                         </article>
 
@@ -77,30 +77,28 @@
                 </div>
 
                 <!-- Table of Contents -->
-                <aside id="toc"
-                       class="hidden bg-white dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 transform transition-transform duration-300 ease-in-out xl:block w-64 flex-shrink-0">
+                <aside
+                    class="hidden bg-white dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 transform transition-transform duration-300 ease-in-out xl:block w-64 flex-shrink-0">
                     <div class="fixed top-16 h-[calc(100vh-4rem)] overflow-y-auto p-6">
                         <h3 class="text-sm font-semibold text-zinc-900 dark:text-white mb-4">On this page</h3>
-                        <nav class="space-y-2">
-                            <a href="#introduction"
-                               class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Introduction</a>
-                            <a href="#installation"
-                               class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Installation</a>
-                            <a href="#configuration"
-                               class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Configuration</a>
-                            <a href="#buttons" class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Buttons</a>
-                            <a href="#cards"
-                               class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Cards</a>
-                            <a href="#forms"
-                               class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Forms</a>
-                            <a href="#theming" class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Theming</a>
-                            <a href="#customization"
-                               class="toc-link block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors py-1">Customization</a>
-                        </nav>
+                        {{--                        <nav x-data="tocSpy()" x-init="init()" >--}}
+                        {{--                            @foreach ($this->markdown()->tocs as $item)--}}
+                        {{--                                <x-docs.toc.item :item="$item" :level="0" />--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </nav>--}}
+
+                        <div x-data x-init
+                             x-effect="$store.tocNavHighlighter.visibleHeadingId">
+                            <nav>
+                                @foreach($this->markdown()->tocs as $item)
+                                    <x-docs.toc.item :item="$item" :level="0"></x-docs.toc.item>
+                                @endforeach
+                            </nav>
+                        </div>
+
                     </div>
                 </aside>
             </div>
         </main>
-
     </div>
 </div>

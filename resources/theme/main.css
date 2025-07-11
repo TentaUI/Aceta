@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "./font.css";
-
 @plugin "@tailwindcss/typography";
 
 @source "../views";
@@ -27,4 +26,43 @@
 
 ::-webkit-scrollbar-thumb:hover {
     @apply bg-zinc-600 dark:bg-zinc-400;
+}
+
+.toc-list-item:has(> .node-name--H1) {
+    @apply border-l-2  transition-all duration-300 ease-in-out border-l-zinc-200;
+}
+
+.toc-list-item:has(> .node-name--H2) {
+    @apply border-l-2  transition-all duration-300 ease-in-out border-l-zinc-200;
+}
+
+
+.toc-list-item:has(> .node-name--H3) {
+    @apply border-l-2  transition-all duration-300 ease-in-out border-l-zinc-200;
+}
+
+
+.toc-list-item:has(> .node-name--H4) {
+    @apply border-l-2  transition-all duration-300 ease-in-out border-l-zinc-200;
+}
+
+
+.is-active-li > a {
+    @apply border-indigo-600 dark:border-indigo-400;
+}
+
+.node-name--H1 {
+    @apply ml-[8px];
+}
+
+.node-name--H2 {
+    @apply ml-[16px];
+}
+
+.node-name--H3 {
+    @apply ml-[24px];
+}
+
+.node-name--H4 {
+    @apply ml-[32px];
 }

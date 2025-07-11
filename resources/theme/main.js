@@ -3,6 +3,7 @@
 // noinspection JSCheckFunctionSignatures
 
 import './main.css';
+import './docs.js';
 
 document.addEventListener('alpine:init', () => {
     const STORAGE_KEY = 'tenta.theme.dark';
