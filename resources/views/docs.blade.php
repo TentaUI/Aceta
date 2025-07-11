@@ -70,11 +70,14 @@
                         <div class="flex justify-between mt-16">
                             <div class="flex items-center gap-x-2 text-indigo-600 dark:text-indigo-400">
                                 <x-icon name="lucide-square-pen" class="size-5" />
-                                <a href="#" class="text-sm">Edit this page</a>
+                                <a href="{{ $this->editURL }}" class="text-sm" target="_blank">Edit this
+                                    page</a>
                             </div>
-                            <div class="text-sm italic text-zinc-600 dark:text-zinc-400">
-                                Last updated on <span class="font-medium"> {{ $this->markdown()->meta('date')->format('M d, Y') }}</span>
-                            </div>
+                            @if($this->markdown()->meta('date'))
+                                <div class="text-sm italic text-zinc-600 dark:text-zinc-400">
+                                    Last updated on <span class="font-medium"> {{ $this->markdown()->meta('date')->format('M d, Y') }}</span>
+                                </div>
+                            @endif
                         </div>
 
                         <!-- Footer -->

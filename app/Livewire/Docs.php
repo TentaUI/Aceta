@@ -12,17 +12,25 @@ class Docs extends Component
     protected MarkdownParser $markdown;
 
     /**
+     * @var string
+     */
+    public string $editURL;
+
+    /**
      * @return void
      */
     public function mount() : void
     {
-        $file = base_path(request()->path() . '.mdx');
+        $path = $path = request()->path() . '.mdx';
+        $file = base_path($path);
 
         if (! file_exists($file)) {
             abort(404);
         }
 
         $this->markdown = new MarkdownParser($file)->render();
+
+        $this->editURL = config('tenta.repository.url') . '/edit/' . config('tenta.repository.branch') . '/' . $path;
     }
 
     /**
