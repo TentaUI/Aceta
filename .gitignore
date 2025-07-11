@@ -2,7 +2,9 @@
 .idea
 
 # PROJECT
+.env
 .yarn
+
 vendor
 example
 node_modules

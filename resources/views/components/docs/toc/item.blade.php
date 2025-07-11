@@ -15,7 +15,7 @@ $class = \Illuminate\Support\Arr::toCssClasses([
 ?>
 <div
     class="border-l-2 {{ $padding }}"
-    :class="$tenta.navigation.isActive('{{ $item['id']}}') ? 'border-l-indigo-600 dark:border-l-indigo-400' : 'border-l-zinc-200 dark:border-l-zinc-800'"
+    :class="$tenta.navigation.isActive('{{ $item['id']}}') ? 'border-indigo-600 dark:border-indigo-400' : 'border-zinc-200 dark:border-zinc-800'"
     x-on:click="$tenta.navigation.setActive('{{ $item['id'] }}')"
 >
     <a href="#{{ $item['id'] }}" {{ $attributes->class($class) }} :class="$tenta.navigation.isActive('{{ $item['id']}}') ? 'font-medium' : ''">

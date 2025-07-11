@@ -12,8 +12,16 @@
     --font-mono: "Geist Mono", monospace;
 }
 
-pre {
-    font-family: var(--font-mono), monospace;
+.prose h1 {
+    @apply text-2xl;
+}
+
+.prose h2 {
+    @apply text-xl;
+}
+
+.prose h3 {
+    @apply text-lg;
 }
 
 /*noinspection CssUnresolvedCustomProperty*/
@@ -27,7 +35,7 @@ pre {
 }
 
 pre {
-    @apply m-0 rounded-lg border border-gray-200 p-4;
+    @apply m-0 rounded-lg border border-zinc-300 dark:border-zinc-800 border-dashed p-4;
 }
 
 /* SCROLLBAR */

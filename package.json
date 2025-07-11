@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "watch": "vite",
-        "build": "vite build"
+        "build": "yarn shiki && vite build",
+        "shiki": "yarn dlx shiki-codegen ./resources/theme/plugins/shiki.bundle.js --engine javascript --langs javascript,php,blade,bash,html,dotenv --themes github-light,github-dark"
     },
     "devDependencies": {
         "@fontsource/geist-mono": "^5.2.6",
