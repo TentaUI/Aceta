@@ -9,16 +9,16 @@ $padding = match ($level) {
 };
 
 $class = \Illuminate\Support\Arr::toCssClasses([
-    'text-zinc-600 dark:text-zinc-400',
+    'text-zinc-700 dark:text-zinc-300',
     'toc-link block text-sm hover:text-zinc-900 dark:hover:text-white transition-colors py-1',
 ]);
 ?>
 <div
-    @click="$store.tocNavHighlighter.setVisibleHeading('{{ $item['id'] }}')"
-    class="border-l-2 border-zinc-200 {{ $padding }}"
-    :class="$store.tocNavHighlighter.visibleHeadingId === '{{ $item['id']}}' ? 'border-l-indigo-500' : ''"
+    class="border-l-2 {{ $padding }}"
+    :class="$tenta.navigation.isActive('{{ $item['id']}}') ? 'border-l-indigo-600 dark:border-l-indigo-400' : 'border-l-zinc-200 dark:border-l-zinc-800'"
+    x-on:click="$tenta.navigation.setActive('{{ $item['id'] }}')"
 >
-    <a href="#{{ $item['id'] }}" {{ $attributes->class($class) }}>
+    <a href="#{{ $item['id'] }}" {{ $attributes->class($class) }} :class="$tenta.navigation.isActive('{{ $item['id']}}') ? 'font-medium' : ''">
         {{ $item['label'] }}
     </a>
 </div>

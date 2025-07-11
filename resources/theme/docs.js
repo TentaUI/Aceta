@@ -1,64 +1,71 @@
-Alpine.store('tocNavHighlighter', {
-    visibleHeadingId: null,
-    headings: [],
+/* global Alpine */
 
-    init() {
-        this.updateHeadings();
-        this.assignHeadingIds();
-        this.onScroll();
+export const createNavigation = () => {
+    return {
+        active: null,
+        headings: [],
 
-        document.addEventListener('scroll', Alpine.throttle(() => {
-            this.onScroll();
-        }, 25));
-
-        document.addEventListener('livewire:navigated', () => {
+        init() {
             this.updateHeadings();
-            this.assignHeadingIds();
             this.onScroll();
-        });
-    },
 
-    updateHeadings() {
-        this.headings = Array.from(document.querySelectorAll('h1, h2, h3, h4'));
-    },
+            document.addEventListener(
+                'scroll',
+                Alpine.throttle(() => {
+                    this.onScroll();
+                }, 25),
+            );
+        },
 
-    assignHeadingIds() {
-        this.headings.forEach((heading) => {
-            if (!heading.id) {
-                heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+        reinit() {
+            this.updateHeadings();
+            this.onScroll();
+        },
+
+        updateHeadings() {
+            this.headings = Array.from(document.querySelectorAll('h1, h2, h3, h4'));
+
+            this.headings.forEach((heading) => {
+                if (!heading.id) {
+                    heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+                }
+                heading.style.scrollMarginTop = '97px';
+            });
+        },
+
+        onScroll() {
+            let isAtTop = window.scrollY < 175;
+            let isAtBottom = window.scrollY + window.innerHeight > document.body.offsetHeight - 175;
+            let relativeTop = isAtBottom ? window.innerHeight : isAtTop ? 250 : window.innerHeight / 2;
+
+            let headingMap = {};
+
+            this.headings.forEach((heading) => {
+                let offset = heading.getBoundingClientRect().top - relativeTop;
+                headingMap[offset] = heading;
+            });
+
+            let closest =
+                isAtTop || isAtBottom
+                    ? Math.max(...Object.keys(headingMap).filter((top) => top < 0))
+                    : Math.min(...Object.keys(headingMap).filter((top) => top > 0));
+
+            if ([Infinity, -Infinity, NaN].includes(closest)) {
+                this.active = null;
+                return;
             }
-            heading.style.scrollMarginTop = '80px';
-        });
-    },
 
-    onScroll() {
-        let isAtTop = window.scrollY < 175;
-        let isAtBottom = window.scrollY + window.innerHeight > document.body.offsetHeight - 175;
-        let relativeTop = isAtBottom ? window.innerHeight : isAtTop ? 250 : window.innerHeight / 2;
+            this.active = headingMap[closest]?.id;
+        },
 
-        let headingMap = {};
+        isActive(id) {
+            return (this.active === id);
+        },
 
-        this.headings.forEach((heading) => {
-            let offset = heading.getBoundingClientRect().top - relativeTop;
-            headingMap[offset] = heading;
-        });
-
-        let closest =
-            isAtTop || isAtBottom
-                ? Math.max(...Object.keys(headingMap).filter((top) => top < 0))
-                : Math.min(...Object.keys(headingMap).filter((top) => top > 0));
-
-        if ([Infinity, -Infinity, NaN].includes(closest)) {
-            this.visibleHeadingId = null;
-            return;
-        }
-
-        this.visibleHeadingId = headingMap[closest]?.id;
-    },
-
-    setVisibleHeading(id) {
-        setTimeout(() => {
-            this.visibleHeadingId = id;
-        }, 10);
-    },
-});
+        setActive(id) {
+            setTimeout(() => {
+                this.active = id;
+            }, 10);
+        },
+    };
+};

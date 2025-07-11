@@ -81,14 +81,8 @@
                     class="hidden bg-white dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 transform transition-transform duration-300 ease-in-out xl:block w-64 flex-shrink-0">
                     <div class="fixed top-16 h-[calc(100vh-4rem)] overflow-y-auto p-6">
                         <h3 class="text-sm font-semibold text-zinc-900 dark:text-white mb-4">On this page</h3>
-                        {{--                        <nav x-data="tocSpy()" x-init="init()" >--}}
-                        {{--                            @foreach ($this->markdown()->tocs as $item)--}}
-                        {{--                                <x-docs.toc.item :item="$item" :level="0" />--}}
-                        {{--                            @endforeach--}}
-                        {{--                        </nav>--}}
 
-                        <div x-data x-init
-                             x-effect="$store.tocNavHighlighter.visibleHeadingId">
+                        <div x-data="$tenta.navigation" x-init="init()" x-effect="$tenta.navigation.active">
                             <nav>
                                 @foreach($this->markdown()->tocs as $item)
                                     <x-docs.toc.item :item="$item" :level="0"></x-docs.toc.item>
