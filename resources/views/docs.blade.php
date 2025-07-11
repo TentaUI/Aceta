@@ -67,8 +67,18 @@
                             {!! $this->markdown()->html !!}
                         </article>
 
+                        <div class="flex justify-between mt-16">
+                            <div class="flex items-center gap-x-2 text-indigo-600 dark:text-indigo-400">
+                                <x-icon name="lucide-square-pen" class="size-5" />
+                                <a href="#" class="text-sm">Edit this page</a>
+                            </div>
+                            <div class="text-sm italic text-zinc-600 dark:text-zinc-400">
+                                Last updated on <span class="font-medium"> {{ $this->markdown()->meta('date')->format('M d, Y') }}</span>
+                            </div>
+                        </div>
+
                         <!-- Footer -->
-                        <footer class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+                        <footer class="mt-4 pt-8 border-t border-zinc-200 dark:border-zinc-800">
                             <p class="text-zinc-600 dark:text-zinc-400 mb-4 md:mb-0">
                                 2025 © {{ config('app.name') }} - Built with Tailwind CSS.
                             </p>

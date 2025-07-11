@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
 use Symfony\Component\Yaml\Yaml;
@@ -54,10 +55,24 @@ class MarkdownParser
     public function meta(string $key) : mixed
     {
         if (blank($this->meta)) {
-            return $this->parse()->meta[$key] ?? null;
+            $this->parse();
         }
 
-        return $this->meta[$key] ?? null;
+        $value = $this->meta[$key] ?? null;
+
+        if ($key === 'date' && $value !== null) {
+            try {
+                if (is_numeric($value)) {
+                    return Carbon::createFromTimestamp((int) $value);
+                }
+
+                return Carbon::parse($value);
+            } catch (\Exception $e) {
+                return $value;
+            }
+        }
+
+        return $value;
     }
 
     /**
@@ -71,7 +86,7 @@ class MarkdownParser
     public function body() : string
     {
         if (blank($this->body)) {
-            $this->parse()->body;
+            $this->parse();
         }
 
         return $this->body;
