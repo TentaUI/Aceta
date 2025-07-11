@@ -36,7 +36,7 @@ document.addEventListener('alpine:init', () => {
     });
 
     window.$tenta = Alpine.store('tenta');
-    // window.$tenta.navigation.init();
+    window.$tenta.navigation.init();
 });
 
 document.addEventListener('livewire:navigated', () => {
