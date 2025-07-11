@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Exception;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
@@ -67,7 +68,7 @@ class MarkdownParser
                 }
 
                 return Carbon::parse($value);
-            } catch (\Exception $e) {
+            } catch (Exception) {
                 return $value;
             }
         }
@@ -102,11 +103,15 @@ class MarkdownParser
      */
     public function render() : MarkdownParser
     {
-        // convert markdown content(with blade directives) into html
-        $html =
-            $this->markdownToHtmlWithLang(
-                Blade::render($this->body()),
-            );
+        $ext = pathinfo($this->markdown, PATHINFO_EXTENSION);
+
+        $markdown = $this->body();
+        if (strtolower($ext) === 'mdx') {
+            $markdown = Blade::render($markdown);
+        }
+
+        // convert markdown content into html
+        $html = $this->markdownToHtmlWithLang($markdown);
 
         // initialize table of content service with parsed html
         $service = new TableOfContent($html);
