@@ -21,9 +21,8 @@ class Docs extends Component
      */
     public function mount() : void
     {
-        $path = $path = request()->path() . '.mdx';
-        $file = base_path($path);
-
+        $path = request()->path();
+        $file = resource_path('pages/' . $path . '.mdx');
         if (! file_exists($file)) {
             abort(404);
         }

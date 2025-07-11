@@ -108,67 +108,8 @@
             </div>
         </section>
 
-        <!-- Used By Section -->
-        <section class="py-20">
-            <div class="mx-auto container px-4 sm:px-6 lg:px-8">
-                <div class="mb-16 text-center">
-                    <h2 class="mb-4 text-3xl font-bold lg:text-4xl">What developers are saying</h2>
-                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Trusted by developers around the world</p>
-                </div>
-
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="rounded-xl bg-zinc-50 p-6 dark:bg-zinc-800">
-                        <div class="mb-4 flex items-center">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">
-                                S
-                            </div>
-                            <div class="ml-3">
-                                <div class="font-semibold">Sarah Chen</div>
-                                <div class="text-sm text-zinc-600 dark:text-zinc-400">Frontend Developer</div>
-                            </div>
-                        </div>
-                        <p class="text-zinc-600 dark:text-zinc-400">
-                            "Tenta UI has completely transformed our development workflow. The components are beautiful and incredibly easy
-                            to customize."
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl bg-zinc-50 p-6 dark:bg-zinc-800">
-                        <div class="mb-4 flex items-center">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">
-                                M
-                            </div>
-                            <div class="ml-3">
-                                <div class="font-semibold">Marcus Johnson</div>
-                                <div class="text-sm text-zinc-600 dark:text-zinc-400">Full Stack Developer</div>
-                            </div>
-                        </div>
-                        <p class="text-zinc-600 dark:text-zinc-400">
-                            "The accessibility features are outstanding. Finally, a component library that takes a11y seriously from the
-                            ground up."
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl bg-zinc-50 p-6 dark:bg-zinc-800">
-                        <div class="mb-4 flex items-center">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">
-                                A
-                            </div>
-                            <div class="ml-3">
-                                <div class="font-semibold">Alex Rivera</div>
-                                <div class="text-sm text-zinc-600 dark:text-zinc-400">UI/UX Designer</div>
-                            </div>
-                        </div>
-                        <p class="text-zinc-600 dark:text-zinc-400">
-                            "Perfect balance between design flexibility and development speed. Our team loves working with Tenta UI."
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Testimonials Section -->
-        <section class="bg-zinc-50 py-20 dark:bg-zinc-800/50">
+        <section class="py-20 ">
             <div class="mx-auto container px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 text-center">
                     <h2 class="mb-4 text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-white">What developers are saying</h2>
@@ -257,7 +198,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-20">
+        <section class="py-20 bg-zinc-50 dark:bg-zinc-800/50">
             <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
                 <h2 class="mb-4 text-3xl font-bold lg:text-4xl">Ready to get started?</h2>
                 <p class="mx-auto mb-8 max-w-2xl text-xl text-zinc-600 dark:text-zinc-400">
