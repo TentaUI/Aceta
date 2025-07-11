@@ -3,9 +3,9 @@
 <?php
 $padding = match ($level) {
     0 => 'pl-[8px]',
-    1 => 'pl-[16px]',
-    2 => 'pl-[24px]',
-    3 => 'pl-[32px]',
+    1 => 'pl-[12px]',
+    2 => 'pl-[16px]',
+    3 => 'pl-[20px]',
 };
 
 $class = \Illuminate\Support\Arr::toCssClasses([
