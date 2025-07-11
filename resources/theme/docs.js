@@ -1,45 +1,44 @@
-/* global Alpine */
+Alpine.store('tocNavHighlighter', {
+    visibleHeadingId: null,
+    headings: [],
 
-document.addEventListener('alpine:initializing', () => {
-    Alpine.store('tocNavHighlighter', {
-        visibleHeadingId: null,
-    });
+    init() {
+        this.updateHeadings();
+        this.assignHeadingIds();
+        this.onScroll();
 
-    let store = Alpine.store('tocNavHighlighter');
-    let headings = [];
+        document.addEventListener('scroll', Alpine.throttle(() => {
+            this.onScroll();
+        }, 25));
 
-    document.addEventListener(
-        'scroll',
-        Alpine.throttle(() => {
-            onScroll();
-        }, 25),
-    );
+        document.addEventListener('livewire:navigated', () => {
+            this.updateHeadings();
+            this.assignHeadingIds();
+            this.onScroll();
+        });
+    },
 
-    document.addEventListener('livewire:navigated', () => {
-        headings = document.querySelectorAll('h1, h2, h3, h4');
+    updateHeadings() {
+        this.headings = Array.from(document.querySelectorAll('h1, h2, h3, h4'));
+    },
 
-        assignHeadingIds();
-        onScroll();
-    });
-
-    function assignHeadingIds() {
-        headings.forEach((heading) => {
+    assignHeadingIds() {
+        this.headings.forEach((heading) => {
             if (!heading.id) {
                 heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
             }
-
-            heading.style.scrollMarginTop = '80px'; // sesuaikan tinggi header kamu (65px + margin nafas)
+            heading.style.scrollMarginTop = '80px';
         });
-    }
+    },
 
-    function onScroll() {
+    onScroll() {
         let isAtTop = window.scrollY < 175;
         let isAtBottom = window.scrollY + window.innerHeight > document.body.offsetHeight - 175;
         let relativeTop = isAtBottom ? window.innerHeight : isAtTop ? 250 : window.innerHeight / 2;
 
         let headingMap = {};
 
-        headings.forEach((heading) => {
+        this.headings.forEach((heading) => {
             let offset = heading.getBoundingClientRect().top - relativeTop;
             headingMap[offset] = heading;
         });
@@ -50,10 +49,16 @@ document.addEventListener('alpine:initializing', () => {
                 : Math.min(...Object.keys(headingMap).filter((top) => top > 0));
 
         if ([Infinity, -Infinity, NaN].includes(closest)) {
-            store.visibleHeadingId = null;
+            this.visibleHeadingId = null;
             return;
         }
 
-        store.visibleHeadingId = headingMap[closest]?.id;
-    }
+        this.visibleHeadingId = headingMap[closest]?.id;
+    },
+
+    setVisibleHeading(id) {
+        setTimeout(() => {
+            this.visibleHeadingId = id;
+        }, 10);
+    },
 });

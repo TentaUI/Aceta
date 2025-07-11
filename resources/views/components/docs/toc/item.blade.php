@@ -14,9 +14,7 @@ $class = \Illuminate\Support\Arr::toCssClasses([
 ]);
 ?>
 <div
-    @click="() => {
-    setTimeout(() => $store.tocNavHighlighter.visibleHeadingId = '{{ $item['id'] }}', 10)
-}"
+    @click="$store.tocNavHighlighter.setVisibleHeading('{{ $item['id'] }}')"
     class="border-l-2 border-zinc-200 {{ $padding }}"
     :class="$store.tocNavHighlighter.visibleHeadingId === '{{ $item['id']}}' ? 'border-l-indigo-500' : ''"
 >
